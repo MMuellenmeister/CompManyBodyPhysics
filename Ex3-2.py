@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+np.set_printoptions(threshold=np.inf, linewidth=np.inf)
 
 
 def hamilton_matrix(J, N):
@@ -61,6 +63,8 @@ J3[0, 0b011] = 1
 J3[1, 0b110] = 1
 J3[2, 0b101] = 1
 
+Jtest = np.ones([3, 2**5])
+
 J1 *= J
 J2 *= J
 J3 *= J
@@ -70,3 +74,8 @@ print("\nJ2 (isotropic Heisenberg model): ")
 print(hamilton_matrix(J2, N))
 print("\nJ3 (Exercise 1d): ")
 print(hamilton_matrix(J3, N))
+print("\nJtest for N>3: ")
+H=hamilton_matrix(Jtest, 5)
+print(H)
+plt.imshow(H)
+plt.show()
